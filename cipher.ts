@@ -1,4 +1,3 @@
-//ig just tell me what cipher we're using and how it works and i'll do it?
 let cipher:string | null = prompt("encryption or decryption?");
 switch(cipher) { 
     case "encryption": { 
