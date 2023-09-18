@@ -16,15 +16,15 @@ function keyGen(){
 function input(){
     switch(selection){
         case 1: {
-            
+            console.log("Encryption Starting...");
             break;
         }
         case 2: {
-            
+            console.log("Decryption Starting...");
             break;
         }
         default: { 
-            console.log("error: empty return"); 
+            console.log("Input a proper number - Aborting..."); 
             break; 
         }
     }
