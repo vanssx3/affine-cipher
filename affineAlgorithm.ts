@@ -5,8 +5,8 @@ let key:number[] = [0, 0];
 let userInput:string | null = prompt("Enter a string to be encrypted or decrypted (lowercase alphabet only)" );
 let selection:number | null = prompt("Enter 1 for Encryption or 2 for Decryption");
 
-let a:number = Math.random() * 8 + 2;
-let b:number = Math.random() * 99 + 1;
+let keyDigit1:number = Math.random() * 8 + 2;
+let keyDigit2:number = Math.random() * 99 + 1;
 //ax+b, where x is the value of the letter in the input
 
 function keyGen(){
