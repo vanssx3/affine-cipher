@@ -10,7 +10,7 @@ let keyDigit2:number = Math.random() * 99 + 1;
 //ax+b, where x is the value of the letter in the input
 
 function keyGen(){
-    //Generate random key to encrypt the file with
+    //create encryption key with generated values
 }
 
 function input(){
@@ -28,8 +28,6 @@ function input(){
             break; 
         }
     }
-    //Prompt user to enter a string
-   //Check if string is all lowercase-letters
 }
 
 function encrypt(){
