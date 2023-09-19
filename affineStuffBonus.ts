@@ -6,8 +6,8 @@ let userInput:any| null;
 let selection:unknown | null;
 let keyDigit1:number = Math.random() * 8 + 2;
 let keyDigit2:number = Math.random() * 99 + 1;
-let userKey:unknown = null;
-let keyIsValid:boolean = true;
+let userKey:any = null;
+let keyIsValid:boolean = null;
 //Fx + S, where x is the value of the letter in the input
 
 
@@ -35,10 +35,13 @@ function keyGen(){
         case 1:{
             key[1] = keyDigit1;
             key[2] = keyDigit2;
+            keyIsValid = true;
             break;
         }
         case 2:{
-            //uhmmm uh add whatever key the user inputted here 
+            key[1] = userKey[0];
+            key[2] = userKey[1-2];
+            //check to see if key is valid, if it is set keyIsValid to true and if its not then set keyIsValid to false
             break;
         }
         default:{
@@ -70,7 +73,7 @@ function isInputValid(): any {
     let numValid:number = 0;
     for (let i in userInput.length){ //Gets the string length
         for (let j in alphabetLetters){ //Gets each letter
-            if(j == null){         //replace null with the letter of the string
+            if(j == userInput[i]){         //replace null with the letter of the string
                 numValid++;
             }
         }
