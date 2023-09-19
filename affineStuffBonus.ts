@@ -7,7 +7,7 @@ let selection:unknown | null;
 let keyDigit1:number = Math.random() * 8 + 2;
 let keyDigit2:number = Math.random() * 99 + 1;
 let userKey:any = null;
-let keyIsValid:boolean = null;
+let keyIsValid:boolean = true;
 //Fx + S, where x is the value of the letter in the input
 
 
@@ -15,7 +15,7 @@ let keyIsValid:boolean = null;
 function getUserInput(){
     userInput = prompt("Enter a string to be encrypted or decrypted (letters only)");
     if (isInputValid() == true){
-
+        
     }
 
     selection = prompt("Enter 1 for Encryption or 2 for Decryption");
@@ -40,7 +40,7 @@ function keyGen(){
         }
         case 2:{
             key[1] = userKey[0];
-            key[2] = userKey[1-2];
+            key[2] = userKey.substr(1, 2);
             //check to see if key is valid, if it is set keyIsValid to true and if its not then set keyIsValid to false
             break;
         }
