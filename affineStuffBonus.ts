@@ -1,4 +1,4 @@
-/setup variables :3
+//setup variables :3
 let alphabetLetters:string[] = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 let numLetters:number = 26;
 let key:number[] = [0, 0];
@@ -14,7 +14,7 @@ let keyIsValid:boolean = true;
 
 function getUserInput(){
     userInput = prompt("Enter a string to be encrypted or decrypted (letters only)");
-    if (isInputValid == true){
+    if (isInputValid() == true){
 
     }
 
@@ -66,7 +66,7 @@ function input(){
     }
 }
 
-function isInputValid(boolean: boolean){
+function isInputValid(): any { 
     let numValid:number = 0;
     for (let i in userInput.length){ //Gets the string length
         for (let j in alphabetLetters){ //Gets each letter
