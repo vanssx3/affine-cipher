@@ -86,12 +86,12 @@ function isInputValid(): any {
                 numValid++;
             }
         }
-    if(numValid != userInput.length){
-        return false;
-    }
-    if(numValid == userInput.length){
-        return true;
-    }
+        if(numValid != userInput.length){
+            return false;
+        }
+        if(numValid == userInput.length){
+            return true;
+        }
     }
 }
 
