@@ -9,6 +9,10 @@ let userKey:any = null;
 let keyIsValid:boolean = true;
 //ax + b % 26, where x is the value of the letter in the input
 
+if((a % 2) == 0){
+    a += 1;
+}
+
 //function calls
 createInput();
 getUserInput();
@@ -66,12 +70,5 @@ function encrypt(){
 
 function decrypt(){
     //decrypt it lol
-    let decryptedInput:string = "";
-    for(let i = 0; i < userInput.length; i++) {
-        //find the number for encrypted letter and plug in
-        let num:number = (a * (alphabetLetters.indexOf(userInput[i])) + b) % 26;
-        //find new letter from alphabedt and add to decryptedString
-        decryptedInput += alphabetLetters[num];
-    }
-    console.log("Decrypted String: " + decryptedInput);
+    
 }
