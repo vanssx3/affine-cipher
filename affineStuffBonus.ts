@@ -50,6 +50,7 @@ function keyGen(){
             key[1] = userKey[0];
             key[2] = userKey.substr(1, 2);
             //check to see if key is valid, if it is set keyIsValid to true and if its not then set keyIsValid to false
+            
             break;
         }
         default:{
@@ -60,22 +61,22 @@ function keyGen(){
     
 }
 
-function input(){
-    switch(selection){
-        case 1: {
-            console.log("Encryption Starting...");
-            break;
-        }
-        case 2: {
-            console.log("Decryption Starting...");
-            break;
-        }
-        default: { 
-            console.log("Invalid selection - Aborting..."); 
-            break; 
-        }
-    }
-}
+// function input(){
+//     switch(selection){
+//         case 1: {
+//             console.log("Encryption Starting...");
+//             break;
+//         }
+//         case 2: {
+//             console.log("Decryption Starting...");
+//             break;
+//         }
+//         default: { 
+//             console.log("Invalid selection - Aborting..."); 
+//             break; 
+//         }
+//     }
+// }
 
 function isInputValid(): any { 
     let numValid:number = 0;
