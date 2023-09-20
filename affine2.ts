@@ -1,6 +1,5 @@
 //setup variables :3
 let alphabetLetters:string[] = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-let numLetters:number = 26;
 let key:number[] = [0, 0];
 let userInput:any = null;
 let selection:unknown | null;
@@ -41,46 +40,6 @@ function getUserInput(){
         getUserInput();
     }  
 }
-
-// function keyGen(){
-//     //create encryption key with generated values
-//     switch(selection){
-//         case 1:{
-//             key[1] = keyDigit1;
-//             key[2] = keyDigit2;
-//             keyIsValid = true;
-//             break;
-//         }
-//         case 2:{
-//             key[1] = userKey[0];
-//             key[2] = userKey.substr(1, 2);
-//             //check to see if key is valid, if it is set keyIsValid to true and if its not then set keyIsValid to false
-//             break;
-//         }
-//         default:{
-//             console.log("Invalid selection - no key made");
-//             break;
-//         }
-//     }
-    
-// }
-
-// function input(){
-//     switch(selection){
-//         case 1: {
-//             console.log("Encryption Starting...");
-//             break;
-//         }
-//         case 2: {
-//             console.log("Decryption Starting...");
-//             break;
-//         }
-//         default: { 
-//             console.log("Invalid selection - Aborting..."); 
-//             break; 
-//         }
-//     }
-// }
 
 function isInputValid(): any { 
     for(let i = 0; i < userInput.length; i++){
