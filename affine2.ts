@@ -1,5 +1,6 @@
 //setup variables :3
 let alphabetLetters:string[] = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+let numLetters:number = 26;
 let key:number[] = [0, 0];
 let userInput:any = null;
 let selection:unknown | null;
@@ -41,6 +42,46 @@ function getUserInput(){
     }  
 }
 
+// function keyGen(){
+//     //create encryption key with generated values
+//     switch(selection){
+//         case 1:{
+//             key[1] = keyDigit1;
+//             key[2] = keyDigit2;
+//             keyIsValid = true;
+//             break;
+//         }
+//         case 2:{
+//             key[1] = userKey[0];
+//             key[2] = userKey.substr(1, 2);
+//             //check to see if key is valid, if it is set keyIsValid to true and if its not then set keyIsValid to false
+//             break;
+//         }
+//         default:{
+//             console.log("Invalid selection - no key made");
+//             break;
+//         }
+//     }
+    
+// }
+
+// function input(){
+//     switch(selection){
+//         case 1: {
+//             console.log("Encryption Starting...");
+//             break;
+//         }
+//         case 2: {
+//             console.log("Decryption Starting...");
+//             break;
+//         }
+//         default: { 
+//             console.log("Invalid selection - Aborting..."); 
+//             break; 
+//         }
+//     }
+// }
+
 function isInputValid(): any { 
     for(let i = 0; i < userInput.length; i++){
         if(alphabetLetters.indexOf(userInput[i]) == -1){
@@ -49,6 +90,7 @@ function isInputValid(): any {
     }
     return true;
 }
+
 
 function encrypt(){
     //encrypt it lol
@@ -65,4 +107,12 @@ function encrypt(){
 
 function decrypt(){
     //decrypt it lol
+    let decryptedInput:string = "";
+    for(let i = 0; i < userInput.length; i++) {
+        //find the number for encrypted letter and plug in
+        let num:number = (a * (alphabetLetters.indexOf(userInput[i])) + b) % 26;
+        //find new letter from alphabedt and add to decryptedString
+        decryptedInput += alphabetLetters[num];
+    }
+    console.log("Decrypted String: " + decryptedInput);
 }
