@@ -2,19 +2,23 @@
 let alphabetLetters:string[] = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 let numLetters:number = 26;
 let key:number[] = [0, 0];
-let userInput:any| null;
+let userInput:any = null;
 let selection:unknown | null;
-let keyDigit1:number = Math.floor(Math.random() * 10) + 1;
-let keyDigit2:number = Math.floor(Math.random() * 100) + 1;
+let a:number = Math.floor(Math.random() * 10) + 1;
+let b:number = Math.floor(Math.random() * 100) + 1;
 let userKey:any = null;
 let keyIsValid:boolean = true;
-//Fx + S, where x is the value of the letter in the input
+//ax + b % 26, where x is the value of the letter in the input
 
 //function calls
+createInput();
 getUserInput();
 
-function getUserInput(){
+function createInput(){
     userInput = prompt("Enter a string to be encrypted or decrypted (letters only)");
+}
+
+function getUserInput(){
     if(isInputValid() == true){
         selection = prompt("Enter 1 for Encryption or 2 for Decryption");
         if(selection == 2){
@@ -32,34 +36,34 @@ function getUserInput(){
         } else if(selection == 1){
             encrypt();
         }
-        keyGen();
-        input();
-    }   
+    } else {
+        console.log("enter a VALID string - restarting...");
+        getUserInput();
+    }  
 }
 
-function keyGen(){
-    //create encryption key with generated values
-    switch(selection){
-        case 1:{
-            key[1] = keyDigit1;
-            key[2] = keyDigit2;
-            keyIsValid = true;
-            break;
-        }
-        case 2:{
-            key[1] = userKey[0];
-            key[2] = userKey.substr(1, 2);
-            //check to see if key is valid, if it is set keyIsValid to true and if its not then set keyIsValid to false
-            
-            break;
-        }
-        default:{
-            console.log("Invalid selection - no key made");
-            break;
-        }
-    }
+// function keyGen(){
+//     //create encryption key with generated values
+//     switch(selection){
+//         case 1:{
+//             key[1] = keyDigit1;
+//             key[2] = keyDigit2;
+//             keyIsValid = true;
+//             break;
+//         }
+//         case 2:{
+//             key[1] = userKey[0];
+//             key[2] = userKey.substr(1, 2);
+//             //check to see if key is valid, if it is set keyIsValid to true and if its not then set keyIsValid to false
+//             break;
+//         }
+//         default:{
+//             console.log("Invalid selection - no key made");
+//             break;
+//         }
+//     }
     
-}
+// }
 
 // function input(){
 //     switch(selection){
@@ -98,6 +102,15 @@ function isInputValid(): any {
 
 function encrypt(){
     //encrypt it lol
+    let encryptedInput:string = null;
+    for(let i = 0; i < userInput.length; i++){
+        //find number for original letter and plug in
+        let num:number = (a * (alphabetLetters.indexOf(userInput[i])) + b) % 26;
+        //find new letter from alphabet and add to encryptedString
+        encryptedInput += alphabetLetters[num];
+    }
+    console.log("Encrypted String: " + encryptedInput);
+    console.log("Encryption Key: " + a + " " + b);
 }
 
 function decrypt(){
