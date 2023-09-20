@@ -83,20 +83,12 @@ function getUserInput(){
 // }
 
 function isInputValid(): any { 
-    let numValid:number = 0;
-    for (let i in userInput.length){ //Gets the string length
-        for (let j in alphabetLetters){ //Gets each letter
-            if(j == userInput[i]){//replace null with the letter of the string
-                numValid++;
-            }
-        }
-        if(numValid != userInput.length){
+    for(let i = 0; i < userInput.length; i++){
+        if(alphabetLetters.indexOf(userInput[i]) == -1){
             return false;
         }
-        if(numValid == userInput.length){
-            return true;
-        }
     }
+    return true;
 }
 
 
