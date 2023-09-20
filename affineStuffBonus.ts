@@ -10,27 +10,31 @@ let userKey:any = null;
 let keyIsValid:boolean = true;
 //Fx + S, where x is the value of the letter in the input
 
-
+//function calls
+getUserInput();
 
 function getUserInput(){
     userInput = prompt("Enter a string to be encrypted or decrypted (letters only)");
-    if (isInputValid() == true){
-        
-    }
+    if(isInputValid() == true){
+        selection = prompt("Enter 1 for Encryption or 2 for Decryption");
+        if(selection == 2){
+            userKey = prompt("Enter your decryption key");
+            //check to see if key is valid, if it is keep going and if its not then set keyIsValid to false
+            if(!((userKey.substring(0, (userKey.indexOf(" "))) >= 1 && userKey.substring(0, (userKey.indexOf(" "))) <= 10) && userKey.substring(userKey.indexOf(" ")) >= 1 && userKey.substring(userKey.indexOf(" ")) <= 100)){
+                //if invalid
+                console.log("invalid decryption key - restarting...");
+                getUserInput();
+            } else {
+                //if valid
+                decrypt();
+            }
 
-    selection = prompt("Enter 1 for Encryption or 2 for Decryption");
-    if(selection == 2){
-        userKey = prompt("Enter your decryption key");
-        //check to see if key is valid, if it is keep going and if its not then set keyIsValid to false
-        if(!((userKey.substring(0, (userKey.indexOf(" "))) >= 1 && userKey.substring(0, (userKey.indexOf(" "))) <= 10) && userKey.substring(userKey.indexOf(" ")) >= 1 && userKey.substring(userKey.indexOf(" ")) <= 100)){
-            //if invalid
+        } else if(selection == 1){
+            encrypt();
         }
-        //if valid
-    }
-    keyGen();
-    input();
-    
-
+        keyGen();
+        input();
+    }   
 }
 
 function keyGen(){
@@ -77,7 +81,7 @@ function isInputValid(): any {
     let numValid:number = 0;
     for (let i in userInput.length){ //Gets the string length
         for (let j in alphabetLetters){ //Gets each letter
-            if(j == userInput[i]){         //replace null with the letter of the string
+            if(j == userInput[i]){//replace null with the letter of the string
                 numValid++;
             }
         }
@@ -93,4 +97,8 @@ function isInputValid(): any {
 
 function encrypt(){
     //encrypt it lol
+}
+
+function decrypt(){
+    //decrypt it lol
 }
