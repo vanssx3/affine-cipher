@@ -102,7 +102,7 @@ function isInputValid(): any {
 
 function encrypt(){
     //encrypt it lol
-    let encryptedInput:string = null;
+    let encryptedInput:string = "";
     for(let i = 0; i < userInput.length; i++){
         //find number for original letter and plug in
         let num:number = (a * (alphabetLetters.indexOf(userInput[i])) + b) % 26;
