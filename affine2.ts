@@ -46,7 +46,9 @@ function getUserInput(){
 function isInputValid(): any { 
     for(let i = 0; i < userInput.length; i++){
         if(alphabetLetters.indexOf(userInput[i]) == -1){
-            return false;
+            if(userInput[i] != " "){
+                return false;
+            }
         }
     }
     return true;
@@ -86,11 +88,15 @@ function decrypt(){
     console.log(aInverse + " " + bPrime);
 
     for(let i = 0; i < userInput.length; i++){
-        let temp = alphabetLetters.indexOf(userInput[i]);
-        temp *= aInverse;
-        temp += bPrime;
-        temp %= 26;
-        decryptedInput += alphabetLetters[temp];
+        if(userInput[i] == " "){
+            decryptedInput += userInput[i];
+        } else {
+            let temp = alphabetLetters.indexOf(userInput[i]);
+            temp *= aInverse;
+            temp += bPrime;
+            temp %= 26;
+            decryptedInput += alphabetLetters[temp];
+        }
     }
     console.log("Decrypted String: " + decryptedInput);
 }
