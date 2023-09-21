@@ -7,23 +7,23 @@ let selection:unknown | null;
 let a:number = aVals[Math.floor(Math.random() * 12)];
 let b:number = Math.floor(Math.random() * 26);
 let userKey:any = null;
-let keyIsValid:boolean = true;
 //ax + b % 26, where x is the value of the letter in the input
 
 //function calls
 createInput();
 getUserInput();
 
+//prompt user for string
 function createInput(){
     userInput = prompt("Enter a string to be encrypted or decrypted (letters only)");
 }
 
+//ask user to encrypt or decrypt, checks key validity
 function getUserInput(){
     if(isInputValid() == true){
         selection = prompt("Enter 1 for Encryption or 2 for Decryption");
         if(selection == 2){
             userKey = prompt("Enter your decryption key");
-            //check to see if key is valid, if it is keep going and if its not then set keyIsValid to false
             if(!((userKey.substring(0, (userKey.indexOf(" "))) >= 1 && userKey.substring(0, (userKey.indexOf(" "))) <= 25) && userKey.substring(userKey.indexOf(" ") + 1) >= 1 && userKey.substring(userKey.indexOf(" ") + 1) <= 25)){
                 //if invalid
                 console.log("invalid decryption key - restarting...");
@@ -42,6 +42,7 @@ function getUserInput(){
     }  
 }
 
+//checks if input is valid
 function isInputValid(): any { 
     for(let i = 0; i < userInput.length; i++){
         if(alphabetLetters.indexOf(userInput[i]) == -1){
@@ -51,7 +52,7 @@ function isInputValid(): any {
     return true;
 }
 
-
+//encrypts the input
 function encrypt(){
     let encryptedInput:string = "";
     for(let i = 0; i < userInput.length; i++){
@@ -66,6 +67,7 @@ function encrypt(){
     console.log("Encryption Key: " + a + " " + b);
 }
 
+//decrypts the input
 function decrypt(){
     let decryptedInput:string = "";
     let aInverse:number = 0;
