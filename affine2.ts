@@ -10,7 +10,6 @@ let userKey:any = null;
 //ax + b % 26, where x is the value of the letter in the input
 
 //function calls
-createInput();
 getUserInput();
 
 //prompt user for string
@@ -20,6 +19,7 @@ function createInput(){
 
 //ask user to encrypt or decrypt, checks key validity
 function getUserInput(){
+    createInput();
     if(isInputValid() == true){
         selection = prompt("Enter 1 for encryption or 2 for decryption");
         if(selection == 2){
@@ -38,7 +38,7 @@ function getUserInput(){
         }
     } else {
         console.log("enter a VALID string - restarting...");
-        getUserInput();
+        setTimeout(() => {getUserInput()}, 500);
     }  
 }
 
