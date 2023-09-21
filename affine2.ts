@@ -21,12 +21,12 @@ function createInput(){
 //ask user to encrypt or decrypt, checks key validity
 function getUserInput(){
     if(isInputValid() == true){
-        selection = prompt("Enter 1 for Encryption or 2 for Decryption");
+        selection = prompt("Enter 1 for encryption or 2 for decryption");
         if(selection == 2){
-            userKey = prompt("Enter your decryption key");
+            userKey = prompt("Enter the given encryption key for your string");
             if(!((userKey.substring(0, (userKey.indexOf(" "))) >= 1 && userKey.substring(0, (userKey.indexOf(" "))) <= 25) && userKey.substring(userKey.indexOf(" ") + 1) >= 1 && userKey.substring(userKey.indexOf(" ") + 1) <= 25)){
                 //if invalid
-                console.log("invalid decryption key - restarting...");
+                console.log("invalid encryption key - restarting...");
                 getUserInput();
             } else {
                 //if valid
@@ -84,8 +84,7 @@ function decrypt(){
 
     let bPrime:number = ((26 - bInput) * aInverse) % 26;
 
-    console.log(userKey);
-    console.log(aInverse + " " + bPrime);
+    console.log("Decryption Key: " + aInverse + " " + bPrime);
 
     for(let i = 0; i < userInput.length; i++){
         if(userInput[i] == " "){
