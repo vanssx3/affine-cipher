@@ -27,7 +27,7 @@ function getUserInput(){
             if(!((userKey.substring(0, (userKey.indexOf(" "))) >= 1 && userKey.substring(0, (userKey.indexOf(" "))) <= 25) && userKey.substring(userKey.indexOf(" ") + 1) >= 1 && userKey.substring(userKey.indexOf(" ") + 1) <= 25)){
                 //if invalid
                 console.log("invalid encryption key - restarting...");
-                getUserInput();
+                setTimeout(() => {getUserInput()}, 500);
             } else {
                 //if valid
                 decrypt();
