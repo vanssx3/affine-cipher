@@ -13,7 +13,7 @@ getUserInput();
 
 //prompt user for string
 function createInput(){
-    userInput = prompt("Enter a string to be encrypted or decrypted (numbers, letters, and - acceptable)");
+    userInput = prompt("Enter a string to be encrypted or decrypted (numbers, letters, and \"-\" are acceptable)");
     userInput = userInput.toLowerCase();
 }
 
